@@ -1,0 +1,45 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { siteInfo } from "../utils/const/site-info";
+import "../styles/global.styles.css";
+import Hero from "../components/hero/Hero.astro";
+
+const {
+    title = siteInfo.title,
+    description = siteInfo.description,
+    image,
+} = Astro.props;
+
+const url = Astro.url.pathname;
+console.log("🚀 ~ url:", url);
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <!-- TODO añadir favicon -->
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <!-- SEO -->
+        <meta name="description" content={description} />
+        <meta name="author" content={"BalaguerDev"} />
+        <!-- OG Metatags -->
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
+        <!-- Required -->
+        <title>{title}</title>
+
+        <ViewTransitions />
+    </head>
+
+    <body>
+        {Astro.url.pathname === "/" ? <Hero /> : null}
+        //NAVBAR
+        <main>
+            <slot />
+        </main>
+        //TODO FOOTER
+    </body>
+</html>
