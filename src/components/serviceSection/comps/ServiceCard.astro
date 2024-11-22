@@ -1,0 +1,28 @@
+---
+
+const {title, description, imageSrc, link} = Astro. props;
+import { Image } from 'astro:assets';
+import './serviceCard.styles.css'
+
+---
+
+
+<a href={link} class="serviceCard">
+    <div>
+      {imageSrc && (
+        <div class="imageContainer">
+          <Image
+            src={imageSrc}
+            alt={title}
+            class="image"
+            width={400}
+            height={300}
+          />
+        </div>
+      )}
+      <div class="serviceCardText">
+        <h3 class={title}>{title}</h3>
+        <p class={description}>{description}</p>
+      </div>
+    </div>
+  </a>

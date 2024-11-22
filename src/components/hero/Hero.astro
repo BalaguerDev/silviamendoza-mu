@@ -1,0 +1,32 @@
+---
+import "./hero.style.css";
+
+const mobileImage =
+    "/images/homepage/hero/Maquillaje-natural-profesional-en-barcelona.webp";
+const desktopImage =
+    "/images/homepage/hero/Maquilladora-profesional-barcelona.webp";
+---
+
+<section class="heroContainerImg">
+    <picture class="heroImage">
+        <source srcset={mobileImage} media="(max-width: 768px)" />
+        <source srcset={desktopImage} media="(min-width: 769px)" />
+        <img
+            src={desktopImage}
+            alt="Maquilladora profesional en Barcelona"
+            class="image"
+            loading="lazy"
+            width="1200"
+            height="400"
+        />
+    </picture>
+
+    <div class="heroContainerText">
+        <h1>Maquillaje y recogidos para novia en Barcelona</h1>
+        <p>Con Silvia Mendoza tu boda será inolvidable.</p>
+
+        <a href="https://api.whatsapp.com/send/?phone=601532809" class="button">
+            Reservar cita ahora
+        </a>
+    </div>
+</section>
